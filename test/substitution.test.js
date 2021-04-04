@@ -22,19 +22,19 @@ describe("Checking encode with spaces", () => {
 
 describe("Checking decode with spaces", () => {
   it("should return 'think ful'", () => {
-    expect(substitution("jrufs cpw", false)).to.equal('think ful');
+    expect(substitution("jrufs cpw", "xoyqmcgrukswaflnthdjpzibev", false)).to.equal('think ful');
   });
 });
 
 describe("Checking encode with nonletter characters in alphabet", () => {
   it("should return 'y&ii$r&'", () => {
-    expect(substitution("message", "wae&zrdxtfcygvuhbijnokmpl")).to.equal('y&ii$r&');
+    expect(substitution("message", "$wae&zrdxtfcygvuhbijnokmpl")).to.equal('y&ii$r&');
   });
 });
 
 describe("Checking decode with nonletter characters in alphabet", () => {
   it("should return 'message'", () => {
-    expect(substitution("y&ii$r&", "wae&zrdxtfcygvuhbijnokmpl")).to.equal('message');
+    expect(substitution("y&ii$r&", "$wae&zrdxtfcygvuhbijnokmpl", false)).to.equal('message');
   });
 });
 

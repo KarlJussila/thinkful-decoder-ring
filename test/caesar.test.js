@@ -58,7 +58,7 @@ describe("Checking invalid positive shift", () => {
 
 describe("Checking invalid negative shift", () => {
   it("should return false", () => {
-    expect(caesar("THIS IS A SECRET message!", -1)).to.equal(false);
+    expect(caesar("THIS IS A SECRET message!", -30)).to.equal(false);
   });
 });
 

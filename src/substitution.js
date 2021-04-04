@@ -24,25 +24,38 @@ const substitutionModule = (function () {
         if (encode) {
             //Map the input chars to their counterparts in the input alphabet
             //and return result joined back into a string
-            return input.split("").map(char => {
+            const result = input.split("").map(char => {
                 //Lower case to get rid of capitals
                 const lowerChar = char.toLowerCase();
 
-                //If the character is
+                //If the character is a letter
                 if (charsToIndex.hasOwnProperty(lowerChar)) {
+                    //Return the letter at the same index in the input alphabet
                     return alphabet[charsToIndex[lowerChar]];
                 }
+                //Otherwise, return the original character
                 return char;
             }).join("");
+            return result;
+        //If decoding
         } else {
-            return input.split("").map(inputChar => {
+            //Map the input chars to their counterparts in the normal alphabet
+            //and return the result joined back into a string
+            const result = input.split("").map(inputChar => {
+                //Try to find the character in the input alphabet
                 let index = -1;
                 alphabet.split("").forEach((char, i) => {
+                    //If found, save its index
                     if (char === inputChar) index = i;
                 });
+                //Return the character at the corresponding index in the normal alphabet
+                //if the character was found in the input alphabet
                 if (index != -1) return chars[index];
+
+                //Otherwise, return the original char
                 return inputChar;
             }).join("");
+            return result;
         }
     }
 

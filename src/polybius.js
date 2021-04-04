@@ -15,7 +15,7 @@ const polybiusModule = (function () {
     //If encoding
     if (encode) {
         //Map the chars to their codes and return the joined string
-        return input.split("").map(char => {
+        const result = input.split("").map(char => {
             //Lower case so they will map properly
             const lowerChar = char.toLowerCase();
             //If it is in the keys (if it is a letter), return its value
@@ -23,6 +23,7 @@ const polybiusModule = (function () {
             //Otherwise return the char
             return char;
         }).join("");
+        return result
 
     //If decoding
     } else {
@@ -62,7 +63,7 @@ const polybiusModule = (function () {
                 }
             }
         }
-
+        
         return result;
     }
   }
